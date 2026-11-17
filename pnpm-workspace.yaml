@@ -1,0 +1,8 @@
+pmOnFail: ignore
+
+minimumReleaseAgeExclude:
+  - '@next/*'
+  - next
+
+allowBuilds:
+  '@ffmpeg-installer/linux-x64': true

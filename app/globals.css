@@ -1,0 +1,147 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-ink-panel: var(--ink-panel);
+  --color-ink-panel-foreground: var(--ink-panel-foreground);
+  --color-ink-panel-muted: var(--ink-panel-muted);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #102018;
+  --ink: #102018;
+  --card: #f4f9f6;
+  --card-foreground: #102018;
+  --popover: #ffffff;
+  --popover-foreground: #102018;
+  --primary: #1f7a3e;
+  --primary-foreground: #ffffff;
+  --secondary: #eef5f0;
+  --secondary-foreground: #102018;
+  --muted: #eef3f0;
+  --muted-foreground: #53655c;
+  --accent: #e3f3e8;
+  --accent-foreground: #166534;
+  --panel: #142019;
+  --ink-panel: #0b1914;
+  --ink-panel-foreground: #f4f7f5;
+  --ink-panel-muted: #b9c4bd;
+  --destructive: oklch(0.6 0.22 25);
+  --border: #dfe8e2;
+  --input: #cfe0d5;
+  --ring: #1f7a3e;
+  --chart-1: #1f7a3e;
+  --chart-2: #4caf6b;
+  --chart-3: #102018;
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: radial-gradient(circle at 80% 0%, rgba(31, 122, 62, 0.07), transparent 40%),
+      radial-gradient(circle at 10% 70%, rgba(31, 122, 62, 0.05), transparent 42%),
+      linear-gradient(160deg, #ffffff 0%, #f8fbf9 45%, #eff6f2 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+}
+
+@utility container-site {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1240px;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 3rem;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-foreground);
+}
+
+@utility dark-panel-radial {
+  background-image: radial-gradient(circle at 77% 23%, rgba(96, 175, 109, 0.2), transparent 38%),
+    radial-gradient(circle at 14% 76%, rgba(72, 125, 91, 0.12), transparent 36%),
+    linear-gradient(135deg, #0b1914, #10261e);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[id^='case-'] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
